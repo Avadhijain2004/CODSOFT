@@ -38,7 +38,7 @@ class ToDoList:
 
 def main():
     todo_list = ToDoList()
-
+    print("                  To Do List Application")
     while True:
         print('\nOptions:')
         print('1. Add Task')
@@ -55,16 +55,17 @@ def main():
         elif choice == '2':
             todo_list.view_tasks()
         elif choice == '3':
-            task_index = int(input('Enter the task index to mark as completed: '))
+            task_index = int(input('Enter the task number to mark as completed: '))
             todo_list.complete_task(task_index)
         elif choice == '4':
-            task_index = int(input('Enter the task index to remove: '))
+            task_index = int(input('Enter the task number to remove: '))
             todo_list.remove_task(task_index)
         elif choice == '5':
-            print('Exiting the To-Do List application. Goodbye!')
+            print('Exiting the To-Do List application.Thank You!!')
             break
         else:
             print('Invalid choice. Please enter a number between 1 and 5.')
+
 
 
 if __name__ == "__main__":
