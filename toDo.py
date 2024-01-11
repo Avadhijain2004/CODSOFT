@@ -1,7 +1,6 @@
 class ToDoList:
     def __init__(self):
         self.tasks = []
-        self.completed_tasks = []
 
     def add_task(self, task):
         self.tasks.append(task)
@@ -17,23 +16,18 @@ class ToDoList:
 
     def complete_task(self, task_index):
         if 1 <= task_index <= len(self.tasks):
-            self.completed_tasks.append(self.tasks[task_index])
             completed_task = self.tasks.pop(task_index - 1)
             print(f'Task "{completed_task}" marked as completed.')
-            ch = int(input("Enter 1 to view the completed tasks else 0:"))
-            if ch==1:
-                print("Completed_task")
-                for index, task in enumerate(self.completed_tasks, start=1):
-                    print(f'{index}. {task}')
+
         else:
-            print('Invalid task index.')
+            print('Invalid task number.')
 
     def remove_task(self, task_index):
         if 1 <= task_index <= len(self.tasks):
             removed_task = self.tasks.pop(task_index - 1)
             print(f'Task "{removed_task}" removed from the to-do list.')
         else:
-            print('Invalid task index.')
+            print('Invalid task number.')
 
 
 def main():
