@@ -20,7 +20,7 @@ def display_contact():
 
 
 while True:
-    choice = int(input(" 1. Add new contact \n 2. Search contact \n 3. Display contact \n 4. Edit contact \n 5. Delete contact \n 6. Exit \nEnter your choice: "))
+    choice = int(input(" 1. Add new contact \n 2. Search contact \n 3. View Contact List \n 4. Update contact \n 5. Delete contact \n 6. Exit \nEnter your choice: "))
     if choice == 1:
         name = input("Enter the contact name: ")
         phone = input("Enter the mobile number: ")
@@ -48,14 +48,15 @@ while True:
         else:
             display_contact()
     elif choice == 4:
-        edit_contact = input("Enter the contact to be edited:  ")
+        edit_contact = input("Enter the contact name whose details you want to update:  ")
         if edit_contact in contact:
-            phone = input("Enter mobile number: ")
-            email = input("Enter an email id of contact: ")
-            address = input("Enter an address: ")
-            contact[edit_contact]=[phone,email,address]
+            name = input("Enter updated name: ")
+            phone = input("Enter updated mobile number: ")
+            email = input("Enter an updated email id of contact: ")
+            address = input("Enter an updated address: ")
+            contact[name]=[phone,email,address]
             print("Contact updated")
-            display_contact()
+            contact.pop(edit_contact)
         else:
             print("Name is not found in contact book")
     elif choice == 5:
@@ -64,11 +65,12 @@ while True:
             confirm = input("Do you want to delete this contact y/n?:  ")
             if confirm =='y' or confirm =='Y':
                 contact.pop(del_contact)
-            display_contact()
+            print("Contact Deleted")
         else:
             print("Name is not found in contact book")
 
     elif choice==6:
+        print("Thank You!!")
         break
     else:
         print("Wrong Choice")
